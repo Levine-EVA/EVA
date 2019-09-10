@@ -1,4 +1,17 @@
+import requests
+import json
+url = https://oapi.dingtalk.com/robot/send?access_token=5e84aff31930ebd77dd82f9b189f9926e8eb695dcd9e8c3d5495730cd2b75637
+header = {
+    'Content-type':'application/json',
+    'charset':'utf-8'
+}
+data = {
+    'msgtype':'text',
+    'text':{'content':'message'}
+}
+sendData = json.dumps(data)
+request = requests.post(url,data = sendData,headers = header)
 from dingtalkchatbot.chatbot import DingtalkChatbot
-webhook = https://oapi.dingtalk.com/robot/send?access_token=5e84aff31930ebd77dd82f9b189f9926e8eb695dcd9e8c3d5495730cd2b75637
+webhook = '你的webhook码'
 xiaoding = DingtalkChatbot(webhook)
 xiaoding.send_text(msg='我就是小丁，小丁就是我！', is_at_all=True)
